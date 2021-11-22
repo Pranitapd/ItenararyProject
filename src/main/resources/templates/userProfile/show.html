@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Users</title>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(users)}">
+        <h2>Users List</h2>
+        <table class="table table-stripped">
+            <tr>
+                <th>Name:</th>
+                <th>Email Id:</th>
+                <th>Phone Number:</th>
+            </tr>
+            <tr th:each="us : ${users}">
+                <td th:text="${us.name}"></td>
+                <td th:text="${us.emailId}"></td>
+                <td th:text="${us.phoneNumber}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
