@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Places</title>
+</head>
+<body>
+    <div th:if="${not #lists.isEmpty(Places)}">
+        <h2>Places</h2>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <th>Description:</th>
+            </tr>
+            <tr th:each="pl : ${Places}">
+                <td th:text="${pl.name}"></td>
+                <td th:text="${pl.description}"></td>
+
+                <ul th:if="${not #lists.isEmpty(pl.attractions)}">
+                    <li th:each="att : ${pl.attractions}"
+                        th:text="${(att.description)
+                        + ' '
+                        + (att.entryCharges)
+                        + ' '
+                        + (att.distFrmHtl)}"></li>
+                </ul>
+
+                <ul th:if="${not #lists.isEmpty(pl.activities)}">
+                    <li th:each="act : ${pl.activities}"
+                        th:text="${(act.description)
+                        + ' '
+                        +(act.entryCharges)
+                        + ' '
+                        +(act.distFrmHtl)}">
+                    </li>
+                </ul>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

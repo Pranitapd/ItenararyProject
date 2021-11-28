@@ -15,7 +15,7 @@ public class Activities {
     private String id;
 
     private String description;
-    private int entry_charges;
+    private int entryCharges;
     private int distFrmHtl;
 
     @ManyToOne

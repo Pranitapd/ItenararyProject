@@ -21,6 +21,6 @@ public class Interests {
     @ManyToMany
     @JoinTable(name = "user_interests",
                 joinColumns = @JoinColumn(name = "userId")
-                ,inverseJoinColumns = @JoinColumn(name = "id"))
+                ,inverseJoinColumns = @JoinColumn(name = "interestId"))
     Set<UserProfile> userProfiles;
 }

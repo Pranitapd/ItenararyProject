@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Show Users</title>
+    <title>User</title>
 </head>
 <body>
-<div class="container">
-    <div class="table-responsive">
-        <h2>Users List</h2>
-        <table class="table table-stripped">
+    <div>
+        <table>
             <tr>
-                <th>Name:</th>
-                <th>Email Id:</th>
-                <th>Phone Number:</th>
+                <td th:text="${User.name}"></td>
+                <td th:text="${User.emailId}"></td>
+                <td th:text="${User.phoneNumber}"></td>
             </tr>
-            <tr>
-                <td th:text="${user.name}"></td>
-                <td th:text="${user.emailId}"></td>
-                <td th:text="${user.phoneNumber}"></td>
-            </tr>
+            <div>
+                <p>User Interests:</p>
+                <ul th:if="${not #lists.isEmpty(User.interests)}">
+                    <li th:each="in: ${User.interests}"  th:text="${in.description}"></li>
+                </ul>
+            </div>
+            <div>
+                <p>User reviews:</p>
+                <ul th:if="${not #lists.isEmpty(User.reviews)}">
+                    <li th:each="in: ${User.reviews}"  th:text="${in.review}"></li>
+                </ul>
+            </div>
+            <div>
+                <p>User visited places:</p>
+                <ul th:if="${not #lists.isEmpty(User.places)}">
+                    <li th:each="in: ${User.places}"  th:text="${in.name}"></li>
+                </ul>
+            </div>
         </table>
+
+
     </div>
-</div>
 </body>
 </html>

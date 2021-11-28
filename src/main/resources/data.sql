@@ -12,3 +12,6 @@ INSERT INTO attractions (description,dist_frm_htl,entry_charges,place_id) VALUES
 INSERT INTO attractions (description,dist_frm_htl,entry_charges,place_id) VALUES ('Zoo',3, 300,1);
 INSERT INTO attractions (description,dist_frm_htl,entry_charges,place_id) VALUES ('Flower garden',4, 400,2);
 INSERT INTO attractions (description,entry_charges,dist_frm_htl,place_id) VALUES ('Hopi Pola club', 500,3,2);
+INSERT INTO user_interests (user_id, interest_id) VALUES(1,2);
+INSERT INTO user_interests (user_id, interest_id) VALUES(1,1);
+INSERT INTO user_interests (user_id, interest_id) VALUES(2,1);

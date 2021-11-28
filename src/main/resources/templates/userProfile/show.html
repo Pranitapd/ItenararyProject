@@ -19,7 +19,20 @@
                 <td th:text="${us.name}"></td>
                 <td th:text="${us.emailId}"></td>
                 <td th:text="${us.phoneNumber}"></td>
+
+                <ul th:if="${not #lists.isEmpty(us.interests)}">
+                    <li th:each="in: ${us.interests}"  th:text="${in.description}"></li>
+                </ul>
+
+                <ul th:if="${not #lists.isEmpty(us.reviews)}">
+                <li th:each="review1: ${us.reviews}"  th:text="${review1.review}"></li>
+                </ul>
+
+                <ul th:if="${not #lists.isEmpty(us.places)}">
+                    <li th:each="place: ${us.places}"  th:text="${place.description}"></li>
+                </ul>
             </tr>
+
         </table>
     </div>
 </div>

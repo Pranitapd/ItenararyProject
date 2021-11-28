@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Add new User</title>
 </head>
 <body>
     <div>
-        <form th:object="${userProfile}" th:action="@{/users/}" method="post">
-            <input type="hidden" th:field="*{id}"/>
-            <label for="password">Password</label>
-            <input type="password" id="password" th:field="*{password}">
-            <label for="fname"> Name</label>
-            <input type="text" id="fname" th:field="*{name}" ><br>
-            <label for="email">EMail</label>
-            <input type="email" id="email" th:field="*{emailId}"><br>
-            <label for="phoneNumber">Phone</label>
-            <input type="number" id="phoneNumber" th:field="*{phoneNumber}"><br>
 
-            <button type="submit" > Submit</button>
+        <form method="post" th:action="@{/users/}" th:object="${userProfile}">
+            <div>
+                <input type="hidden" id="*{id}">
+                <input id="password" placeholder="Enter Password" required type="text" th:field="*{password}"/>
+                <input id="name" placeholder="Enter Name" required type="text" th:field="*{name}"/>
+                <input id="emailId" placeholder="Enter Email" required type="text" th:field="*{emailId}"/>
+                <input id="phoneNumber" placeholder="Enter Number" required type="text" th:field="*{phoneNumber}"/>
+            </div>
+            <br>
+            <div class="col-md-12">
+               <select th:field="*{interests}">
+                   <th:block th:each="int : ${SetInterest}">
+                       <option th:text="${int.interest}" th:value="${int.id}"/>
+                   </th:block>
+               </select>
+
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Create User">
+            </div>
         </form>
     </div>
 </body>

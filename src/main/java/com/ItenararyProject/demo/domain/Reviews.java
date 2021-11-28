@@ -1,6 +1,8 @@
 package com.ItenararyProject.demo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Reviews {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +29,6 @@ public class Reviews {
     @ManyToOne
     @JoinColumn(name = "place_id")
     private Place place;
+
 
 }
